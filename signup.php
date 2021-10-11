@@ -19,7 +19,6 @@ else{
 echo "error:".$sql."<br>".$conn->error;
 
 }
-header("location:home.php");
 
 $conn->close();
 ?>

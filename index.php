@@ -30,15 +30,21 @@ $_SESSION['csrf_token_time'] = time();
             padding: 30px 20px;
             box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
         }
+        input{
+          border-radius: 15px;
+          font-style: italic; 
+          padding: 10px 30px; 
+        }
 	</style>
 </head>
 <body style="text-align: center;">
-<h2>Login to my PHP and mysql web app</h2>
 <form action="login.php" method="POST">
+  <h2>Login to my PHP and mysql web app</h2><br><br>
 	Username:<input type="text" name="uname" value="<?php if(isset($_COOKIE["uname"])) { echo $_COOKIE["uname"]; } ?>"><br><br>
 	Password:<input type="password" name="pwd" value="<?php if(isset($_COOKIE["pwd"])) { echo $_COOKIE["pwd"]; } ?>"><br><br>
 	<button type="submit" name="login">Login</button><br><br>
 	<p><input type="checkbox" name="remember" checked="checked"> Remember me</p><br>
+  <a href=password.php>Forget my password</a>
    <p> I do not have an account?  <a href="signupForm.php">Sign Up</a> </p>
    <input type ="hidden" name="csrf_token" value="<?php echo $token; ?>">
 </form>

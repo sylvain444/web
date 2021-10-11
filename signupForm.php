@@ -12,11 +12,16 @@
             padding: 30px 20px;
             box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
         }
+        input{
+          border-radius: 15px;
+          font-style: italic; 
+          padding: 10px 30px;
+        }
 	</style>
 </head>
 <body style="text-align: center;">
-<h2>Create your account now</h2>
 <form action="signup.php" method="POST">
+	<h2>Create your account now</h2><br><br>
 	First name:<input type="text" name="fname" required="required"><br><br>
 	Last name:<input type="text" name="lname" required="required"><br><br>
 	Email:<input type="email" name="email" required="required"><br><br>
