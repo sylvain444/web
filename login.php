@@ -28,7 +28,7 @@ $hashpwd=hash('sha1', $salt);
             $_SESSION['name']=$uname;
             $_SESSION['pass']=$hashpwd; 
         }
-        header('location:loginForm.php');
+        header('location:home.php');
    }       
         else{  
             echo "<h1> Login failed. Invalid username or password.</h1>";  

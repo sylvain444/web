@@ -24,10 +24,9 @@ $stmti->close();
 header('location:index.php');
 
     }
+  }  
   else{
     echo "Wrong activation code ";
-  }
-
   }
 
 ?>
