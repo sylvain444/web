@@ -5,7 +5,7 @@ $fname=$_POST["fname"];
 $lname=$_POST["lname"];
 $email=$_POST["email"];
 $uname=$_POST["uname"];
-$pwd=sha1($_POST["pwd"]);
+$pwd=$_POST["pwd"];
 $code=mt_rand(1000000,9999999);
 $_SESSION['email']=$email;
 $_SESSION['code']=$code;
@@ -19,8 +19,9 @@ $st=mysqli_stmt_init($conn);
     $mailing = mail($to,$subject,$message,$from);
 if(mysqli_stmt_prepare($st,$sql))
 {
-//echo "New record created successfully";
-mysqli_stmt_bind_param($st,"sssssss",$fname,$lname,$email,$uname,$pwd,$code,$status);
+$salt=$pwd."sylvain";
+$hashpwd=hash('sha1', $salt);
+mysqli_stmt_bind_param($st,"sssssss",$fname,$lname,$email,$uname,$hashpwd,$code,$status);
 mysqli_stmt_execute($st);
 header('location:verificationCode.php');
     

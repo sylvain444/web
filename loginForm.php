@@ -44,8 +44,8 @@ $_SESSION['csrf_token_time'] = time();
 	Password:<input type="password" name="pwd" value="<?php if(isset($_COOKIE["pwd"])) { echo $_COOKIE["pwd"]; } ?>"><br><br>
 	<button type="submit" name="login">Login</button><br><br>
 	<p><input type="checkbox" name="remember" checked="checked"> Remember me</p><br>
-  <a href=forgetPassword.php>Forget my password</a>
-  <a href=verifyEmail.php>Verify now</a>
+  <a href=forgetPassword.php>Forget my password</a><br><br>
+  <a href=verifyEmail.php>Verify your account</a>
    <p> I do not have an account?  <a href="signupForm.php">Sign Up</a> </p>
    <input type ="hidden" name="csrf_token" value="<?php echo $token; ?>">
 </form>

@@ -3,8 +3,10 @@
 session_start();
 include 'database.php';
 $uname=$_POST["uname"];
-$pwd=sha1($_POST["pwd"]);
-   $sql = "select *from student where uname = '$uname' and pwd = '$pwd'";  
+$pwd=$_POST["pwd"];
+$salt=$pwd."sylvain";
+$hashpwd=hash('sha1', $salt);
+   $sql = "select *from student where uname = '$uname' and pwd = '$hashpwd'";  
         $result1 = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result1, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result1);   
@@ -24,7 +26,7 @@ $pwd=sha1($_POST["pwd"]);
            
             }
             $_SESSION['name']=$uname;
-            $_SESSION['pass']=$pwd; 
+            $_SESSION['pass']=$hashpwd; 
         }
         header('location:loginForm.php');
    }       
